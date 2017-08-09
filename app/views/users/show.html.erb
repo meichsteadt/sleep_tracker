@@ -1,0 +1,3 @@
+<% @reported_logs.each do |key, val| %>
+  <p><%= key %>: <%= val.class == Time ? val.strftime("%I:%M %p") : val %></p>
+<% end %>

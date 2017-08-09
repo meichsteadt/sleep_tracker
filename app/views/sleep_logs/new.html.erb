@@ -1,0 +1,33 @@
+<div class="col-sm-4">
+  <%= form_for([current_user, @sleep_log]) do |f| %>
+  <div class="form-group">
+    <%= f.label :bed_time, "What time did you go to bed?"  %>
+    <%= f.time_field :bed_time, class: "form-control", required: true  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :time_to_sleep, "How long did it take you to fall asleep? (In Minutes)"  %>
+    <%= f.number_field :time_to_sleep, class: "form-control", required: true  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :times_woken_up, "How many times did you wake up during the night?"  %>
+    <%= f.number_field :times_woken_up, class: "form-control", required: true  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :length_of_awakening, "Approximately how long was each awakening? (In Minutes)"  %>
+    <%= f.number_field :length_of_awakening, class: "form-control", required: true  %>
+  </div>
+  <div class="form-group">
+    <%= f.label :time_woken_up_for_good, "What time did you wake up for good?"  %>
+    <%= f.time_field :time_woken_up_for_good, class: "form-control", required: true  %>
+  </div>
+  <div class="form-group">
+    <%= label_tag "How rested were you when you woke up?" %>
+    <br>
+    <% 5.times do |time| %>
+    <%= f.label "rest_level_#{time+1}", time+1, class: "radio-inline"  %>
+    <%= f.radio_button :rest_level, time+1, required: true  %>
+    <% end %>
+  </div>
+  <%= f.submit "Submit", class: "button" %>
+  <% end %>
+</div>
